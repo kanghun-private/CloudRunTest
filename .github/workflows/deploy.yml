@@ -42,6 +42,6 @@ jobs:
     - name: Deploy to Cloud Run
       uses: google-github-actions/deploy-cloudrun@v2
       with:
-        service: my-service
+        service: car-auction
         image: docker.io/${{ secrets.DOCKER_USERNAME }}/car-auction:${{ github.sha }}
         region: asia-northeast3
