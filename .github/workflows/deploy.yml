@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: CloudRun 
     outputs:
       image-digest: ${{ steps.build.outputs.digest }}
     
@@ -30,6 +31,7 @@ jobs:
   deploy:
     needs: build  # build 작업 완료 후 실행
     runs-on: ubuntu-latest
+    environment: CloudRun 
     
     steps:
     - name: Authenticate to GCP
