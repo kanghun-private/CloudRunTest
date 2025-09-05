@@ -25,7 +25,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/car-auction:${{ github.sha }}
 
   deploy:
     needs: build  # build 작업 완료 후 실행
@@ -41,5 +41,5 @@ jobs:
       uses: google-github-actions/deploy-cloudrun@v2
       with:
         service: my-service
-        image: docker.io/${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
+        image: docker.io/${{ secrets.DOCKER_USERNAME }}/car-auction:${{ github.sha }}
         region: asia-northeast3
